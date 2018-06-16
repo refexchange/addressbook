@@ -7,16 +7,30 @@
 #include <sys/time.h>
 
 unsigned int global_seed = 0;
-const static uint32_t hashcode[24] = {
+
+Payload *__hashcode = NULL;
+
+void _init_hashcode()
+{
+    __hashcode = palloc(Payload);
+    const static uint32_t hashcode[24] = {
         1382635611, 1059542905, 608844070, 1312842352,
         1798260027, 1582003309, 1920021044, 1397170552,
         694450758, 1446079613, 1866548330, 1228299322,
         577659182, 1043168096, 927083592, 2002017615,
         678765401, 1027368572, 1428512554, 894503258,
         1664109600, 1129336190, 1751460664, 1986491187
-};
-const static size_t hashcode_size = 24;
-const static Payload hashcode_cipher = {(CipherData*)hashcode, hashcode_size};
+    };
+    __hashcode->length = 24;
+    __hashcode->seq = (CipherData*)calloc(24, sizeof(CipherData));
+    memcpy(__hashcode->seq, hashcode, 96);
+}
+
+Payload *_get_hashcode()
+{
+    if (!__hashcode) _init_hashcode();
+    return __hashcode;
+}
 
 Payload* payload_alloc()
 {
@@ -135,7 +149,7 @@ Payload *cryptoDecrypt(const Payload *cipher, const Payload *password)
 char* cryptoHash(const char *password)
 {
     Payload *password_payload = payloadDecode(password);
-    Payload *prehash = cryptoEncrypt(password_payload, &hashcode_cipher);
+    Payload *prehash = cryptoEncrypt(password_payload, _get_hashcode());
     char *hashed = payload_digit_dumps(prehash);
     free_payload(password_payload);
     free_payload(prehash);
