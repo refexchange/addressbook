@@ -406,15 +406,15 @@ TableInterface *allocAddContactPage()
 {
     const static char *hint = "输入联系人信息。";
     const static char *prompts[] = {
-        "名字：",
-        "姓氏：",
+        "          名字：",
+        "          姓氏：",
         "全名（可留空）：",
-        "电话：",
-        "电子邮件：",
-        "地址：",
-        "分组：",
-        "新建联系人",
-        "放弃"
+        "          电话：",
+        "      电子邮件：",
+        "          地址：",
+        "          分组：",
+        "    新建联系人",
+        "    放弃"
     };
     TableInterface *table = getMenuTable(9, prompts, hint);
     for (int i = 0; i < 7; i++) {
@@ -506,12 +506,12 @@ TableInterface *allocSearchPage()
 {
     const static char *hint = "注意：联系人只支持单个字段的搜索。";
     const static char *options[] = {
-        "按姓名搜索：",
+        "    按姓名搜索：",
         "按电话号码搜索：",
-        "按电邮搜索：",
-        "按地址搜索：",
-        "搜索",
-        "放弃"
+        "    按电邮搜索：",
+        "    按地址搜索：",
+        "    搜索",
+        "    放弃"
     };
     TableInterface *table = getMenuTable(6, options, hint);
     for (int i = 0; i < 4; i++) {
@@ -536,22 +536,22 @@ TableInterface *allocContactPage(Contact *person)
     };
     const static char *hint = "用方向键和回车选择你要更改的字段。";
     const static char *prompts[] = {
-        "名字：",
-        "姓氏：",
-        "全名：",
-        "电话：",
+        "    名字：",
+        "    姓氏：",
+        "    全名：",
+        "    电话：",
         "电子邮件：",
-        "地址：",
-        "分组："
+        "    地址：",
+        "    分组："
     };
     char *titles[10];
     for (int i = 0; i < 7; i++) {
         titles[i] = malloc(256);
         snprintf(titles[i], 256, "%s%s", prompts[i], buffers[i]);
     }
-    titles[7] = strdup("删除联系人");
-    titles[8] = strdup("保存更改");
-    titles[9] = strdup("放弃更改");
+    titles[7] = strdup("    删除联系人");
+    titles[8] = strdup("    保存更改");
+    titles[9] = strdup("    放弃更改");
     TableInterface *table = getMenuTable(10, (const char**)titles, hint);
     for (int i = 0; i < 7; i++) {
         table->items[i]->callback = editCallback;
@@ -584,9 +584,9 @@ TableInterface *allocLoginPage()
     const char *hint = "请输入你的用户名和密码。";
     const char *options[] = {
         "用户名：",
-        "密码：",
-        "登录",
-        "返回",
+        "  密码：",
+        "  登录",
+        "  返回",
     };
     TableInterface *table = getMenuTable(4, options, hint);
     table->items[0]->context = getPL(options[0], NULL);
@@ -602,11 +602,11 @@ TableInterface *allocRegisterPage()
 {
     const char *hint = "请输入新的用户名和密码以注册。";
     const char *options[] = {
-        "用户名：",
-        "密码：",
+        "  用户名：",
+        "    密码：",
         "重复密码：",
-        "注册",
-        "返回",
+        "    注册",
+        "    返回",
     };
     TableInterface *table = getMenuTable(5, options, hint);
     table->items[0]->context = getPL(options[0], NULL);
