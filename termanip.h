@@ -1,7 +1,7 @@
-/* Commandline Interface Tools */
+/* Terminal Manipulating */
 
-#ifndef _TERMINAL_H_
-#define _TERMINAL_H_
+#ifndef _TERMANIP_H_
+#define _TERMANIP_H_
 
 #include <termios.h>
 #include <stdio.h>
@@ -11,11 +11,6 @@
 
 #define YES 1
 #define NO 0
-
-typedef struct coordinate_t {
-    int X;
-    int Y;
-} Coordinate;
 
 typedef enum {
     KeyActionNull = 0,        /* NULL */
@@ -58,4 +53,4 @@ void showcursor();
 void raw_debug(const char *message);
 void err_exit(const char *message);
 
-#endif /* _TERMINAL_H_ */
+#endif /* _TERMANIP_H_ */

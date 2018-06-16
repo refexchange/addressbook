@@ -14,14 +14,14 @@ add_executable(addressbook
         crypto.h
         csv_parser.c
         csv_parser.h
-        interface.c
-        interface.h
-        line_edit.c
-        line_edit.h
+        interaction.c
+        interaction.h
+        editline.c
+        editline.h
         list.h
         main.c
-        terminal.c
-        terminal.h
+        termanip.c
+        termanip.h
         user.c
         user.h
         util.c

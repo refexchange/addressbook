@@ -1,7 +1,7 @@
 #include "util.h"
-#include "terminal.h"
-#include "interface.h"
-#include "line_edit.h"
+#include "termanip.h"
+#include "interaction.h"
+#include "editline.h"
 #include <stdio.h>
 #include <termios.h>
 #include <stdlib.h>

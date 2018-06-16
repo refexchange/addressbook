@@ -1,4 +1,4 @@
-#include "line_edit.h"
+#include "editline.h"
 
 /* Note that Chinese characters occupy 2 block of space in most terminal. */
 typedef struct line_state_t{

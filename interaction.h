@@ -1,5 +1,5 @@
-#ifndef _TABLE_INTERFACE_H_
-#define _TABLE_INTERFACE_H_
+#ifndef _INTERACTION_H_
+#define _INTERACTION_H_
 
 typedef struct prompt_line_t {
 	char *prompt;

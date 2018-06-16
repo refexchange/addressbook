@@ -1,4 +1,4 @@
-#include "terminal.h"
+#include "termanip.h"
 #include <sys/ioctl.h>
 
 
