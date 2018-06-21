@@ -5,7 +5,6 @@
 #include "application.h"
 #include "crypto.h"
 #include "util.h"
-#include "terminal.h"
 
 UserList *userList = NULL;
 User *currentUser = NULL;

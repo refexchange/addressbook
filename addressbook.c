@@ -2,7 +2,6 @@
 // Created by refexchange on 2018/5/31.
 //
 
-#include "terminal.h"
 #include "addressbook.h"
 
 #pragma mark Contacts dump and load
